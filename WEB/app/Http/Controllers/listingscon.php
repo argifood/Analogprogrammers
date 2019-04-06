@@ -49,7 +49,7 @@ class listingscon extends Controller
         $listing->buyout = $request->input('buyout');
         $listing->amount = $request->input('amount');
         $listing->quality = $request->input('quality');
-        $listing->areacode_id=$request->input('areacode');
+        $listing->areacodes_id=$request->input('areacode_id');
         $listing->production_date = $request->input('production_date');
         $listing->end_of_auction= $request->input('end_of_auction');
         $listing->sold=0;

@@ -1,3 +1,5 @@
+@include('navbar')
+
 {!! Form::open(['route' => 'listings.store']) !!}
 
 <div class="form-group">
@@ -25,7 +27,7 @@
         {!! Form::select('product_id', $products, null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::Label('areacodes', 'Location:') !!}
+    {!! Form::Label('areacode_id', 'Location:') !!}
     {!! Form::select('areacode_id', $areacodes, null, ['class' => 'form-control']) !!}
 </div>
 </div>

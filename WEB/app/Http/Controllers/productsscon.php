@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\product;
+use App\listing;
 use Illuminate\Support\Facades\Auth;
 class productsscon extends Controller
 {

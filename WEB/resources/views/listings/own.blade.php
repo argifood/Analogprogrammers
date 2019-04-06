@@ -1,3 +1,5 @@
+@include('navbar')
+
 @isset($listings)
     @foreach ($listings as $listing)
         {{$listing->id}}
