@@ -18,7 +18,7 @@ class productsscon extends Controller
         $user=Auth::user();  
         if($user->type>10)
             {
-                $products=products::all();
+                $products=product::all();
                 return view('products.index')->with('products',$products);
             }
         $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);

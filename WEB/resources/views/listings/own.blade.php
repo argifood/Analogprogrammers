@@ -33,7 +33,14 @@
                         <div class="row-sm">
                             <p class="font-weight-bold w-25 "  > Current Price: {{$listing->bid}} € </p>
                             <p class="font-weight-bold w-25 "  > Amount: {{ $listing->amount}}Kg </p>
-                            <p class="font-weight-bold w-25 "  > Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € </p>  
+                            <p class="font-weight-bold w-25 "  > Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € </p> 
+                            <p class="font-weight-bold w-25 "  >
+                            @if($listing->sold==1)
+                                Product Sold
+                            @else
+                                Auction in progress
+                            @endif
+                            </p>  
                             <br>
                         </div>
                     </div>

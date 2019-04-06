@@ -15,6 +15,9 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-success bg-success mb-4">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/tomato.jpg" width="30" height="30" alt="">
+                </a>
             <a class="navbar-brand text-black-50" href="/">AgriFood</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -23,7 +26,7 @@
               <ul class="navbar-nav mr-auto">
                 @auth
                 <li class="nav-item dark">
-                  <a class="nav-link text-black-50" href="/listings">Product Auctions <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-black-50" href="/listings">Product Auctions</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-black-50" href="/listings/create">Create Auction</a>
@@ -50,6 +53,10 @@
                                         <a class="dropdown-item" href="/mylistings">My Listings</a>
                                         <a class="dropdown-item" href="/bought">Bought items</a>
                                         <a class="dropdown-item" href="/logout">Logout</a>
+                                        @if(Auth::user()->type>10)
+                                        <a class="dropdown-item" href="/areacodes">Areacodes</a>
+                                        <a class="dropdown-item" href="/products">Products</a>
+                                        @endif
                         </div>
                     </li>
                 @endguest
