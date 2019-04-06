@@ -20,12 +20,14 @@
     {!! Form::label('quality', 'Quality') !!}
     {!! Form::text('quality', null, ['class' => 'form-control']) !!}
 </div>
-
 <div class="form-group">
         {!! Form::Label('product', 'Product:') !!}
         {!! Form::select('product_id', $products, null, ['class' => 'form-control']) !!}
 </div>
-
+<div class="form-group">
+    {!! Form::Label('areacodes', 'Location:') !!}
+    {!! Form::select('areacode_id', $areacodes, null, ['class' => 'form-control']) !!}
+</div>
 </div>
 <div class="form-group">
 {{ Form::label('production_date', 'Production date:') }}

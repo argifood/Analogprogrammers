@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\product;
 use Illuminate\Support\Facades\Auth;
-class productsscon extends Controller
+use App\areacode;
+class areacodecon extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class productsscon extends Controller
         $user=Auth::user();  
         if($user->type>10)
             {
-                $products=products::all();
-                return view('products.index')->with('products',$products);
+                $areacodes=areacode::all();
+                return view('areacodes.index')->with('areacodes',$areacodes);
             }
         $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
         return redirect('listings')->with('message', 'Successfully created listing');
@@ -31,13 +31,7 @@ class productsscon extends Controller
      */
     public function create()
     {
-    $user=Auth::user();  
-    if($user->type>10)
-        {
-            return view('products.create');
-        }
-    $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
-    return redirect('listings')->with('message', 'Successfully created listing');
+        //
     }
 
     /**
@@ -48,31 +42,17 @@ class productsscon extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
-        ]);
-        // Handle File Upload
-        if($request->hasFile('cover_image')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-        } else {
-            $fileNameToStore = 'noimage.jpg';
-        }
-        // Create Post
-        $product = new product;
-        $product->name = $request->input('name');
-        $product->icon_name = $fileNameToStore;
-        $product->save();
-        return redirect('/product')->with('success', 'Post Created');
+        $user=Auth::user();  
+        if($user->type>10)
+            {
+                $areacode= new areacode;
+                $areacode->name=$request->input('name');
+                $areacode->save();
+                $areacodes=areacode::all();
+                return view('areacodes.index')->with('areacodes',$areacodes);
+            }
+            $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+            return redirect('listings')->with('message', 'Successfully created listing');
     }
 
     /**

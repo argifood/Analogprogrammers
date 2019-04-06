@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\listing;
 use App\product;
+use App\areacode;
 use Illuminate\Support\Facades\Auth;
 
 class listingscon extends Controller
@@ -30,7 +31,8 @@ class listingscon extends Controller
     public function create()
     {
         $products=product::all()->pluck('name', 'id')->toArray();
-        return view('listings.create')->with('products',$products);
+        $areacodes=areacode::all()->pluck('name', 'id')->toArray();
+        return view('listings.create')->with('products',$products)->with('areacodes',$areacodes);
     }
 
     /**
@@ -47,6 +49,7 @@ class listingscon extends Controller
         $listing->buyout = $request->input('buyout');
         $listing->amount = $request->input('amount');
         $listing->quality = $request->input('quality');
+        $listing->areacode_id=$request->input('areacode');
         $listing->production_date = $request->input('production_date');
         $listing->end_of_auction= $request->input('end_of_auction');
         $listing->sold=0;

@@ -11,6 +11,10 @@ class listing extends Model
     {
         return $this->belongsTo('App\product', 'product_id');
     }
+    public function areacode()
+    {
+        return $this->belongsTo('App\areacode', 'areacode_id');
+    }
     public function seller()
     {
         return $this->belongsTo('App\User', 'seller_id');
