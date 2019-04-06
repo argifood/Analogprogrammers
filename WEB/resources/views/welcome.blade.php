@@ -52,13 +52,7 @@
               <a class="btn btn-lg btn-primary" href="/listings" role="button">Current Auctions</a>
               <br></br>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                  <div class="img-responsive">
-                      <img src="/images/tomatoo.jpg">
-                      <div class="caption">
-                    </a>
-                  </div>  
+            
             </div>
           </main>
     </body>

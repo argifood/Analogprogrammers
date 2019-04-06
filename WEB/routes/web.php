@@ -18,9 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('listings', 'listingscon');
-Route::resource('products', 'productsscon');
-Route::resource('areacodes', 'areacodecon');
-Route::get('/mylistings', 'listingscon@ownindex');
-Route::get('/bought', 'listingscon@bought');
-Route::post('/listings/bid/', 'listingscon@bid');
+Route::resource('listings', 'listingscon')->middleware('auth');
+Route::resource('products', 'productsscon')->middleware('auth');
+Route::resource('areacodes', 'areacodecon')->middleware('auth');
+Route::get('/mylistings', 'listingscon@ownindex')->middleware('auth');
+Route::get('/bought', 'listingscon@bought')->middleware('auth');
+Route::post('/listings/bid/', 'listingscon@bid')->middleware('auth');
