@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>AgriFood</title>
+        <title>AgriBid</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -16,9 +16,9 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-success bg-success mb-4">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/tomato.jpg" width="30" height="30" alt="">
+                    <img src="/images/logo.png" width="30" height="30" alt="">
                 </a>
-            <a class="navbar-brand text-dark  " href="/">AgriFood</a>
+            <a class="navbar-brand text-dark  " href="/">AgriBid</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

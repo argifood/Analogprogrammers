@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\statshour;
+use App\stat;
+
 class statshourcon extends Controller
 {
     public function index()
@@ -12,7 +13,7 @@ class statshourcon extends Controller
     $date = new \DateTime();
     $date->modify('-3 hours');
     $formatted_date = $date->format('Y-m-d H:i:s');
-    $stats = statshour::where('created_at', '>',$formatted_date)->get();
+    $stats = stat::where('created_at', '>',$formatted_date)->get();
     dd($stats);
     }
 }
