@@ -1,10 +1,64 @@
 @include('navbar')
       
           <main role="main" class="container">
-            <div class="jumbotron">
-              <h1>Navbar example</h1>
-              <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-              <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Search</a>
+            <div style="background:transparent !important" class="jumbotron">
+              <h1 class='text-center'>Welcome AgriFood Auction House</h1>
+              <p class="text-center lead">Creative a new bond with farmers and wholesale buyers</p>
+              <p class="text-center lead">Networking across all the supply chain.</p>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-tomato"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-potato"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-tomato"></i>
+              <i class="em em-watermelon"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-seedling"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-tomato"></i>
+              <i class="em em-deciduous_tree"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-watermelon"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-deciduous_tree"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-tomato"></i>  
+              <i class="em em-cow2"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-seedling"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-potato"></i>
+              <i class="em em-glass_of_milk"></i>
+              <i class="em em-deciduous_tree"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-watermelon"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-potato"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-ear_of_rice"></i> 
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-cow2"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-cherries"></i>
+              <i class="em em-ear_of_rice"></i>
+              <i class="em em-tomato"></i>
+              <i class="em em-ear_of_rice"></i>  
+              <i class="em em-glass_of_milk"></i> 
+              <i class="em em-cherries"></i>           
+
+              <br></br>
+              <div class="text-center"> 
+              <a class="btn btn-lg btn-primary" href="/listings" role="button">Current Auctions</a>
+              <br></br>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                  <div class="img-responsive">
+                      <img src="/images/tomatoo.jpg">
+                      <div class="caption">
+                    </a>
+                  </div>  
             </div>
           </main>
     </body>
