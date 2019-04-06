@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('listings', 'listingscon');
 Route::resource('products', 'productscon');
+Route::get('/mylistings', 'listingscon@ownindex');
+Route::get('/bought', 'listingscon@bought');
+Route::post('/listings/bid/', 'listingscon@bid');

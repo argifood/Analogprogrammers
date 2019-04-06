@@ -13,6 +13,11 @@ class CreateListings extends Migration
      */
     public function up()
     {
+        Schema::create('areacodes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+
+        });
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
@@ -28,9 +33,11 @@ class CreateListings extends Migration
             $table->foreign('buyer_id')->references('id')->on('users');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('bid');
-            $table->unsignedBigInteger('buyout');
-            $table->unsignedBigInteger('amount');
+            $table->unsignedBigInteger('areacodes_id');
+            $table->foreign('areacodes_id')->references('id')->on('areacodes');
+            $table->double('bid', 15, 2);
+            $table->double('buyout', 15, 2);
+            $table->double('amount', 15, 2);
             $table->integer('quality');
             $table->datetime('production_date');
             $table->datetime('end_of_auction');

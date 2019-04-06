@@ -15,10 +15,6 @@
     {!! Form::text('amount', null, ['class' => 'form-control']) !!}
 </div>
 
-<div class="form-group">
-    {!! Form::label('buyout', 'Buyout') !!}
-    {!! Form::text('buyout', null, ['class' => 'form-control']) !!}
-</div>
 
 <div class="form-group">
     {!! Form::label('quality', 'Quality') !!}

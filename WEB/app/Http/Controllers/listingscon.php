@@ -16,7 +16,8 @@ class listingscon extends Controller
      */
     public function index()
     {
-        $listings=listing::where('sold',0)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+        $user=Auth::user();
+        $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
         //dd($listings);
         return view('listings.index')->with('listings',$listings);
     }
@@ -49,12 +50,13 @@ class listingscon extends Controller
         $listing->production_date = $request->input('production_date');
         $listing->end_of_auction= $request->input('end_of_auction');
         $listing->sold=0;
-        $listing->seller()->associate($user);
-        //dd($request->input('product_id'));
-        $product=product::find($request->input('product_id'))->get();
-        $listing->product()->associate($product);
+        $listing->seller_id=$user->id;
+        $product=product::find($request->input('product_id'));
+        //dd($product->id);
+        $listing->product_id= $product->id;
         $listing->save();
-        return Redirect::to('listings.index')->with('message', 'Successfully created listing');
+        $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+        return view('listings.index')->with('message', 'Successfully created listing');
     }
 
     /**
@@ -100,5 +102,38 @@ class listingscon extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function ownindex()
+    {
+        $user=Auth::user();
+        $listings=listing::where('seller_id','=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+        return view('listings.own')->with('listings',$listings);
+    }
+    public function bought()
+    {
+        $user=Auth::user();
+        $listings=listing::where('buyer_id','=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+        return view('listings.own')->with('listings',$listings);
+    }
+    public function bid(Request $request)
+    {
+        $bid=$request->input("bid_amount");
+        $user=Auth::user();
+        $listing=listing::find($request->input("listing_id"));
+        if($bid<$listing->buyout)
+        {
+            $listing->bid=$bid;
+            $listing->buyer_id=$user->id;
+            $listing->save();
+        }
+        if($bid>=$listing->buyout)
+        {
+            $listing->bid=$bid;
+            $listing->buyer_id=$user->id;
+            $listing->sold=1;
+            $listing->save();
+        }
+        $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+        return redirect('listings')->with('message', 'Successfully created listing');
     }
 }
