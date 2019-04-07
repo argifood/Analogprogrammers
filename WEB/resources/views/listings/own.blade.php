@@ -17,9 +17,9 @@
                 <div class="col-sm-4">
                     <div class="text-justify">
                         <div class="text-justify">
-                            <p class="font-weight-bold "  > Product:  {{$listing->product->name}} </p>
+                            <p> Product:  {{$listing->product->name}} </p>
                         </div>
-                         <p class="font-weight-bold .text-danger"  >Production Date:<br />
+                         <p>Production Date:<br />
                         {{$listing->production_date}}<br />
                         Expire Date:<br />
                         {{$listing->end_of_auction}}<br />
