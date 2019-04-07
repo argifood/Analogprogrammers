@@ -50,6 +50,7 @@
               <br></br>
               <div class="text-center"> 
               <a class="btn btn-lg btn-primary" href="/listings" role="button">Current Auctions</a>
+              <a class="btn btn-lg btn-primary" href="/stats" role="button">Stats</a>
               <br></br>
             </div>
             

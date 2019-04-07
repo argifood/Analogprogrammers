@@ -19,24 +19,33 @@
                         <div class="text-justify">
                             <p class="font-weight-bold "  > Product:  {{$listing->product->name}} </p>
                         </div>
-                         <p class="font-weight-bold .text-danger"  >Production Date</p>
-                        {{$listing->production_date}}
-                        <br></br>
-                        <p class="font-weight-bold .text-danger"  >Expire Date</p>
-                        {{$listing->end_of_auction}}
+                         <p class="font-weight-bold .text-danger"  >Production Date:<br />
+                        {{$listing->production_date}}<br />
+                        Expire Date:<br />
+                        {{$listing->end_of_auction}}<br />
+                        Origin:<br />
+                        {{$listing->areacode->name}}
+                    </p>
                     </div>
-                        <br></br>
                        
                     
                     </div>
                     <div class="col-sm">
                         <div class="row-sm">
-                            <p class="font-weight-bold w-25 "  > Current Price: {{$listing->bid}} € </p>
-                            <p class="font-weight-bold w-25 "  > Amount: {{ $listing->amount}}Kg </p>
-                            <p class="font-weight-bold w-25 "  > Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € </p> 
-                            <p class="font-weight-bold w-25 "  >
+                            <p class="font-weight-bold w-25 "  > Current Price: {{$listing->bid}} € <br />
+                            Amount: {{ $listing->amount}}Kg  <br />
+                            Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € <br /> 
+                            
                             @if($listing->sold==1)
-                                Product Sold
+                                @isset($mode)
+                                    @if($mode=="buyer")
+                                    Auction Finished
+                                    <button type="button" class="btn btn-info">Pay</button>
+                                    @endif
+                                    @if($mode=="seller")
+                                    Product Sold
+                                    @endif
+                                @endisset
                             @else
                                 Auction in progress
                             @endif

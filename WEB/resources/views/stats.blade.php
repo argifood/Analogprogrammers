@@ -20,31 +20,32 @@ product.push(obj['name']);
 <body>
 <div class="container"  id='Graph' >              
 <script> 
-var trace1 = {
+/*var trace1 = {
 x: product,
 y: totalamount,
 type: 'bar',
 name: 'totalamount',
 };
+*/
 var trace2 = {
-x: product,
-y: minprice,
-type: 'bar',
-name: 'minprice',
+    x: product,
+    y: minprice,
+    type: 'bar',
+    name: 'Lowest price',
 };
-var trace3 = {
-x: product,
-y: maxprice,
-type: 'bar',
-name: 'maxprice',
+    var trace3 = {
+    x: product,
+    y: maxprice,
+    type: 'bar',
+    name: 'Highest price',
 };
 var trace4 = {
     x: product,
     y: meanprice,
     type: 'bar',
-    name: 'meanprice',
+    name: 'Average price',
     };
-var data = [trace1, trace2, trace3, trace4];
+var data = [trace2, trace4, trace3];
 var layout ={barmode: 'group'};
 Plotly.newPlot('Graph', data, layout);
 </script> 

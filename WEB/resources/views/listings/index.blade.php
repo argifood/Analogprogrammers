@@ -19,32 +19,39 @@
                         <div class="text-justify">
                             <p class="font-weight-bold "  > Product:  {{$listing->product->name}} </p>
                         </div>
-                         <p class="font-weight-bold .text-danger"  >Production Date</p>
-                        {{$listing->production_date}}
-                        <br></br>
-                        <p class="font-weight-bold .text-danger"  >Expire Date</p>
-                        {{$listing->end_of_auction}}
-                    </div>
-                        <br></br>
+                         <p class="font-weight-bold .text-danger"  >Production Date:<br />
+                        {{$listing->production_date}}<br />
+                        Expire Date:<br />
+                        {{$listing->end_of_auction}}<br />
+                        Origin:<br />
+                        {{$listing->areacode->name}}
+                    </p>
+                    </div> 
                        
                     
                     </div>
                     <div class="col-sm">
                         <div class="row-sm">
-                            <p class="font-weight-bold w-25 "  > Current Price: {{$listing->bid}} € </p>
-                            <p class="font-weight-bold w-25 "  > Amount: {{ $listing->amount}}Kg </p>
-                            <p class="font-weight-bold w-25 "  > Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € </p>
+                            <p class="font-weight-bold w-25 "  > 
+                            Current Price: {{$listing->bid}} € <br />
+                            Buyout Price: {{$listing->buyout}} € <br />
+                            Amount: {{ $listing->amount}}Kg <br />
+                            Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € <br />
+                            @if($listing->buyer_id!=Auth::user()->id)
                             {!! Form::open(array('action' => 'listingscon@bid')) !!}
                             <input type="hidden" value="{{$listing->id}}" name="listing_id">
                             {!! Form::number('bid_amount', null, ['class' => 'form-control','step' => '0.1']) !!}
                             <br>
                             {!! Form::submit('Bid', ['class' => 'btn btn-info']) !!}
-                            {!! Form::close() !!}
                             {!! Form::open(array('action' => 'listingscon@bid')) !!}
                             <input type="hidden" value="{{$listing->id}}" name="listing_id">
                             <input type="hidden" value="{{$listing->buyout}}" name="bid_amount">
                             {!! Form::submit('Buyout', ['class' => 'btn btn-info btn-danger']) !!}
-                            {!! Form::close() !!}   
+                            {!! Form::close() !!} 
+                            {!! Form::close() !!}
+                            @else
+                                You are the highest bidder
+                            @endif
                             <br>
                         </div>
                     </div>

@@ -13,7 +13,7 @@ class listing extends Model
     }
     public function areacode()
     {
-        return $this->belongsTo('App\areacode', 'areacode_id');
+        return $this->belongsTo('App\areacode', 'areacodes_id');
     }
     public function seller()
     {

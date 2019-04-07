@@ -18,7 +18,7 @@ class listingscon extends Controller
     public function index()
     {
         $user=Auth::user();
-        $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
+        $listings=listing::where('sold',0)->where('seller_id','!=',$user->id)->with('product')->with('areacode')->orderBy('end_of_auction', 'asc')->paginate(20);
         //dd($listings);
         return view('listings.index')->with('listings',$listings);
     }
@@ -109,14 +109,16 @@ class listingscon extends Controller
     public function ownindex()
     {
         $user=Auth::user();
+        $mode="seller";
         $listings=listing::where('seller_id','=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
-        return view('listings.own')->with('listings',$listings);
+        return view('listings.own')->with('listings',$listings)->with("mode",$mode);
     }
     public function bought()
     {
         $user=Auth::user();
+        $mode="buyer";
         $listings=listing::where('buyer_id','=',$user->id)->with('product')->orderBy('end_of_auction', 'asc')->paginate(20);
-        return view('listings.own')->with('listings',$listings);
+        return view('listings.own')->with('listings',$listings)->with("mode",$mode);
     }
     public function bid(Request $request)
     {
@@ -131,7 +133,7 @@ class listingscon extends Controller
         }
         if($bid>=$listing->buyout)
         {
-            $listing->bid=$bid;
+            $listing->bid=$listing->buyout;
             $listing->buyer_id=$user->id;
             $listing->sold=1;
             $listing->save();
