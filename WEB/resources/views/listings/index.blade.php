@@ -17,7 +17,7 @@
                 <div class="col-sm-4">
                     <div class="text-justify">
                         <div class="text-justify">
-                        <p> Προϊόν:  {{$listing->product->name}}<br />
+                        <p> Προϊόν: <strong> {{$listing->product->name}} </strong><br />
                         <br>
                         Ημερομηνία Παραγωγής:<br />
                         {{$listing->production_date}}<br />
@@ -43,11 +43,11 @@
                             <input type="hidden" value="{{$listing->id}}" name="listing_id">
                             {!! Form::number('bid_amount', null, ['class' => 'form-control','step' => '0.1']) !!}
                             <br>
-                            {!! Form::submit('Bid', ['class' => 'btn btn-info']) !!}
+                            {!! Form::submit('Προσφορά', ['class' => 'btn btn-info']) !!}
                             {!! Form::open(array('action' => 'listingscon@bid')) !!}
                             <input type="hidden" value="{{$listing->id}}" name="listing_id">
                             <input type="hidden" value="{{$listing->buyout}}" name="bid_amount">
-                            {!! Form::submit('Buyout', ['class' => 'btn btn-info btn-danger']) !!}
+                            {!! Form::submit('Εξαγορά', ['class' => 'btn btn-info btn-danger']) !!}
                             {!! Form::close() !!} 
                             {!! Form::close() !!}
                             @else

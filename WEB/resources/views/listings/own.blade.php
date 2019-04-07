@@ -17,8 +17,9 @@
                 <div class="col-sm-4">
                     <div class="text-justify">
                         <div class="text-justify">
-                            <p> Προϊόν:  {{$listing->product->name}} </p>
+                        Προϊόν: <strong> {{$listing->product->name}} </strong>
                         </div>
+                        <br>
                          <p>Ημερομηνία Παραγωγής:<br />
                         {{$listing->production_date}}<br />
                         Ημερομηνία Λήξης:<br />
