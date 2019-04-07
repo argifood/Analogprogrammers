@@ -5,6 +5,7 @@
               <h1 class='text-center'>Καλωσορίσατε στην πλατφόρμα Δημοπρασίας AgriBid</h1>
               <p class="text-center lead">Δημιουργούμε έναν νεό τρόπο διασύνδεσης των αγροτών με τους έμπορους</p>
               <p class="text-center lead">Δικτύωση σε όλη την αλυσίδα ανεφοδιασμού.</p>
+              <div class="span12 text-center">
               <i class="em em-ear_of_rice"></i>
               <i class="em em-tomato"></i>
               <i class="em em-ear_of_rice"></i>
@@ -42,7 +43,7 @@
               <i class="em em-ear_of_rice"></i>
               <i class="em em-cherries"></i>
                        
-
+              </div >
               <br></br>
               <div class="text-center"> 
               <a class="btn btn-lg btn-primary" href="/listings" role="button">Τρέχουσες Δημοπρασίες</a>
