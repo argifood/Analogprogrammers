@@ -47,14 +47,14 @@
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="/mylistings">My Listings</a>
                       <a class="dropdown-item" href="/bought">Bought items</a>
-                      <a class="dropdown-item text-danger font-weight-bold " href="{{ url('/logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout </a>
-                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                          {{ csrf_field() }}
-                      </form>
                       @if(Auth::user()->type>10)
                       <a class="dropdown-item" href="/areacodes">Areacodes</a>
                       <a class="dropdown-item" href="/products">Products</a>
                       @endif
+                      <a class="dropdown-item text-danger font-weight-bold " href="{{ url('/logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout </a>
+                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
                   </div>
                 </div>
               @else

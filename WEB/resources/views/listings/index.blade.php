@@ -1,7 +1,7 @@
 @include('navbar')
 
 @isset($listings)
-        
+<br> 
     @foreach ($listings as $listing)
       <div class="container">  
           <div class="jumbotron" style="background">
@@ -17,26 +17,27 @@
                 <div class="col-sm-4">
                     <div class="text-justify">
                         <div class="text-justify">
-                            <p class="font-weight-bold "  > Product:  {{$listing->product->name}} </p>
-                        </div>
-                         <p class="font-weight-bold .text-danger"  >Production Date:<br />
+                        <p> Product:  {{$listing->product->name}}<br />
+                        <br>
+                        Production Date:<br />
                         {{$listing->production_date}}<br />
                         Expire Date:<br />
                         {{$listing->end_of_auction}}<br />
                         Origin:<br />
                         {{$listing->areacode->name}}
-                    </p>
+                        </p>
+                        </div>
                     </div> 
                        
                     
                     </div>
                     <div class="col-sm">
                         <div class="row-sm">
-                            <p class="font-weight-bold w-25 "  > 
+                            <p> 
                             Current Price: {{$listing->bid}} € <br />
                             Buyout Price: {{$listing->buyout}} € <br />
                             Amount: {{ $listing->amount}}Kg <br />
-                            Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € <br />
+                            Price per Kg: {{ number_format($listing->bid/$listing->amount,5)}} € <br />
                             @if($listing->buyer_id!=Auth::user()->id)
                             {!! Form::open(array('action' => 'listingscon@bid')) !!}
                             <input type="hidden" value="{{$listing->id}}" name="listing_id">

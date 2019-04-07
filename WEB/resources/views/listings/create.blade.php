@@ -1,5 +1,5 @@
 @include('navbar')
-
+<br>
 {!! Form::open(['route' => 'listings.store']) !!}
 <div class="container">
     <div class="row">

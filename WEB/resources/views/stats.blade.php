@@ -1,5 +1,5 @@
 @include('navbar')
-
+<br>
 <script>
 var totalamount = [];
 var minprice = [];
