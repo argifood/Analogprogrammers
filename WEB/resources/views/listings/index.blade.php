@@ -17,13 +17,13 @@
                 <div class="col-sm-4">
                     <div class="text-justify">
                         <div class="text-justify">
-                        <p> Product:  {{$listing->product->name}}<br />
+                        <p> Προϊόν:  {{$listing->product->name}}<br />
                         <br>
-                        Production Date:<br />
+                        Ημερομηνία Παραγωγής:<br />
                         {{$listing->production_date}}<br />
-                        Expire Date:<br />
+                        Ημερομηνία Λήξης:<br />
                         {{$listing->end_of_auction}}<br />
-                        Origin:<br />
+                        Προέλευση:<br />
                         {{$listing->areacode->name}}
                         </p>
                         </div>
@@ -34,10 +34,10 @@
                     <div class="col-sm">
                         <div class="row-sm">
                             <p> 
-                            Current Price: {{$listing->bid}} € <br />
-                            Buyout Price: {{$listing->buyout}} € <br />
-                            Amount: {{ $listing->amount}}Kg <br />
-                            Price per Kg: {{ number_format($listing->bid/$listing->amount,5)}} € <br />
+                            Τρέχουσα Τιμή: {{$listing->bid}} € <br />
+                            Τιμή Εξαγοράς: {{$listing->buyout}} € <br />
+                            Ποσότητα: {{ $listing->amount}}Kg <br />
+                            Τιμή Κιλού: {{ number_format($listing->bid/$listing->amount,5)}} € <br />
                             @if($listing->buyer_id!=Auth::user()->id)
                             {!! Form::open(array('action' => 'listingscon@bid')) !!}
                             <input type="hidden" value="{{$listing->id}}" name="listing_id">
@@ -51,7 +51,7 @@
                             {!! Form::close() !!} 
                             {!! Form::close() !!}
                             @else
-                                You are the highest bidder
+                                Είσαι ο υψηλότερος πλειοδότης
                             @endif
                             <br>
                         </div>

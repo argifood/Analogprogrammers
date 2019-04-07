@@ -31,13 +31,13 @@
                 </li>
                 @auth
                 <li class="nav-item dark">
-                  <a class="nav-link text-dark" href="/listings">Product Auctions</a>
+                  <a class="nav-link text-dark" href="/listings">Δημοπρασίες Προϊόντων</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-dark" href="/listings/create">Create Auction</a>
+                  <a class="nav-link text-dark" href="/listings/create">Δημιουργία Δημοπρασίας</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="/stats" role="button">Stats</a>
+                <a class="nav-link text-dark" href="/stats" role="button">Στατιστικά</a>
               </li>
               </ul>
               <div class="dropdown">
@@ -45,13 +45,13 @@
                       {{ Auth::user()->name }}
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="/mylistings">My Listings</a>
-                      <a class="dropdown-item" href="/bought">Bought items</a>
+                      <a class="dropdown-item" href="/mylistings">Τα προϊόντα μου</a>
+                      <a class="dropdown-item" href="/bought">Αγορασμένα Προϊόντα</a>
                       @if(Auth::user()->type>10)
-                      <a class="dropdown-item" href="/areacodes">Areacodes</a>
-                      <a class="dropdown-item" href="/products">Products</a>
+                      <a class="dropdown-item" href="/areacodes">Κωδικός Τοποθεσίας</a>
+                      <a class="dropdown-item" href="/products">Προϊόντα</a>
                       @endif
-                      <a class="dropdown-item text-danger font-weight-bold " href="{{ url('/logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout </a>
+                      <a class="dropdown-item text-danger font-weight-bold " href="{{ url('/logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Αποσύνδεση </a>
                       <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                           {{ csrf_field() }}
                       </form>

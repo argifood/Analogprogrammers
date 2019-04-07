@@ -2,9 +2,9 @@
       
           <main role="main" class="container">
             <div style="background:transparent !important" class="jumbotron">
-              <h1 class='text-center'>Welcome AgriFood Auction House</h1>
-              <p class="text-center lead">Creative a new bond with farmers and wholesale buyers</p>
-              <p class="text-center lead">Networking across all the supply chain.</p>
+              <h1 class='text-center'>Καλωσορίσατε στην πλατφόρμα Δημοπρασίας AgriBid</h1>
+              <p class="text-center lead">Δημιουργούμε έναν νεό τρόπο διασύνδεσης των αγροτών με τους έμπορους</p>
+              <p class="text-center lead">Δικτύωση σε όλη την αλυσίδα ανεφοδιασμού.</p>
               <i class="em em-ear_of_rice"></i>
               <i class="em em-tomato"></i>
               <i class="em em-ear_of_rice"></i>
@@ -41,16 +41,12 @@
               <i class="em em-cow2"></i>
               <i class="em em-ear_of_rice"></i>
               <i class="em em-cherries"></i>
-              <i class="em em-ear_of_rice"></i>
-              <i class="em em-tomato"></i>
-              <i class="em em-ear_of_rice"></i>  
-              <i class="em em-glass_of_milk"></i> 
-              <i class="em em-cherries"></i>           
+                       
 
               <br></br>
               <div class="text-center"> 
-              <a class="btn btn-lg btn-primary" href="/listings" role="button">Current Auctions</a>
-              <a class="btn btn-lg btn-primary" href="/stats" role="button">Stats</a>
+              <a class="btn btn-lg btn-primary" href="/listings" role="button">Τρέχουσες Δημοπρασίες</a>
+              <a class="btn btn-lg btn-primary" href="/stats" role="button">Στατιστικά</a>
               <br></br>
             </div>
             

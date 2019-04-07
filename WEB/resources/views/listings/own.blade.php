@@ -17,13 +17,13 @@
                 <div class="col-sm-4">
                     <div class="text-justify">
                         <div class="text-justify">
-                            <p> Product:  {{$listing->product->name}} </p>
+                            <p> Προϊόν:  {{$listing->product->name}} </p>
                         </div>
-                         <p>Production Date:<br />
+                         <p>Ημερομηνία Παραγωγής:<br />
                         {{$listing->production_date}}<br />
-                        Expire Date:<br />
+                        Ημερομηνία Λήξης:<br />
                         {{$listing->end_of_auction}}<br />
-                        Origin:<br />
+                        Προέλευση:<br />
                         {{$listing->areacode->name}}
                     </p>
                     </div>
@@ -32,22 +32,22 @@
                     </div>
                     <div class="col-sm">
                         <div class="row-sm">
-                            <p class="font-weight-bold w-25 "  > Current Price: {{$listing->bid}} € <br />
-                            Amount: {{ $listing->amount}}Kg  <br />
-                            Price per unit: {{ number_format($listing->bid/$listing->amount,5)}} € <br /> 
+                            <p class="font-weight-bold w-25 "  > Τρέχουσα Τιμή: {{$listing->bid}} € <br />
+                            Ποσότητα: {{ $listing->amount}}Kg  <br />
+                            Τιμή κιλού: {{ number_format($listing->bid/$listing->amount,5)}} € <br /> 
                             
                             @if($listing->sold==1)
                                 @isset($mode)
                                     @if($mode=="buyer")
-                                    Auction Finished
-                                    <button type="button" class="btn btn-info">Pay</button>
+                                    Τέλος Δημοπρασίας
+                                    <button type="button" class="btn btn-info">Πληρωμή</button>
                                     @endif
                                     @if($mode=="seller")
-                                    Product Sold
+                                    Πωλήθηκε
                                     @endif
                                 @endisset
                             @else
-                                Auction in progress
+                                Δημοπρασία σε εξέλιξη
                             @endif
                             </p>  
                             <br>

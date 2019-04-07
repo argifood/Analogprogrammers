@@ -31,19 +31,19 @@ var trace2 = {
     x: product,
     y: minprice,
     type: 'bar',
-    name: 'Lowest price',
+    name: 'Χαμηλότερη τιμή',
 };
     var trace3 = {
     x: product,
     y: maxprice,
     type: 'bar',
-    name: 'Highest price',
+    name: 'Υψηλότερη τιμή',
 };
 var trace4 = {
     x: product,
     y: meanprice,
     type: 'bar',
-    name: 'Average price',
+    name: 'Μέση τιμή',
     };
 var data = [trace2, trace4, trace3];
 var layout ={barmode: 'group'};
