@@ -5,12 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>AgriBid</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         
     </head>
     <body>
@@ -44,7 +46,7 @@
                       </li>
                       
                 @else
-                    <li class="nav-item dropdown text-dark ">
+                    <li class="nav-item dropdown text-dark">
                             
                         <a id="navbarDropdown " class="nav-link dropdown-toggle text-dark" href="/login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} 
@@ -54,7 +56,6 @@
                                         <a class="dropdown-item" href="/mylistings">My Listings</a>
                                         <a class="dropdown-item" href="/bought">Bought items</a>
                                         <a class="dropdown-item text-danger font-weight-bold " href="{{ url('/logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout </a>
-    
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>

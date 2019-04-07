@@ -24,3 +24,5 @@ class listing extends Model
         return $this->belongsTo('App\User', 'buyer_id');
     }
 }
+
+

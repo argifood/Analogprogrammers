@@ -23,5 +23,5 @@ Route::resource('products', 'productsscon')->middleware('auth');
 Route::resource('areacodes', 'areacodecon')->middleware('auth');
 Route::get('/mylistings', 'listingscon@ownindex')->middleware('auth');
 Route::get('/bought', 'listingscon@bought')->middleware('auth');
-Route::get('/stats', 'statshourcon@index');
+Route::get('/stats', 'StatshourController@index');
 Route::post('/listings/bid/', 'listingscon@bid')->middleware('auth');

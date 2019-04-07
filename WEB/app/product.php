@@ -10,4 +10,8 @@ class product extends Model
     {
         return $this->hasmany('App\listing', 'listing');
     }
+    public function statshour()
+    {
+        return $this->hasmany('App\statshour', 'statshour');
+    }
 }
