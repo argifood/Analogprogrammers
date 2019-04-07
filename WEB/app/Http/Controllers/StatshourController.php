@@ -15,7 +15,7 @@ class StatshourController extends Controller
     public function index()
     {
         $date = new \DateTime();
-        $date->modify('-3 hours');
+        $date->modify('-1 hours');
         $formatted_date = $date->format('Y-m-d H:i:s');
         $stats = statshour::where('created_at', '>',$formatted_date)->get();
         return view("stats")->with("stats",$stats);

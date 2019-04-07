@@ -6,13 +6,14 @@ var minprice = [];
 var maxprice = [];
 var meanprice = [];
 var product = [];
+
 @foreach ($stats as $stat)
 totalamount.push({!! $stat->totalamount !!});
 minprice.push({!! $stat->minprice !!});
 maxprice.push({!! $stat->maxprice !!});
 meanprice.push({!! $stat->meanprice !!});
-//date.push(new Date("{{ $stat->created_at"));
-product.push({!! $stat->product->name !!});
+var obj = JSON.parse('{!! $stat->product !!}');
+product.push(obj['name']);
 @endforeach
 
 </script> 
